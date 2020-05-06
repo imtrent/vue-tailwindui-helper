@@ -10,18 +10,12 @@ function copyToClipBoard(elemText) {
 }
 
 function App() {
-	const [
-		normalSnippet,
-		setNormalSnippet
-	] = useState(`<a href="#" class="ml-4 px-3 py-2 font-medium text-sm leading-5 rounded-md text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:bg-gray-100">
-        Company
-      </a>`);
-	const [
-		activeSnippet,
-		setActiveSnippet
-	] = useState(`<a href="#" class="ml-4 px-3 py-2 font-medium text-sm leading-5 rounded-md text-gray-700 bg-gray-100 focus:outline-none focus:bg-gray-200" aria-current="page">
-        Team Members
-	  </a>`);
+	const [normalSnippet, setNormalSnippet] = useState(
+		`<a href="#" class="ml-4 px-3 py-2 font-medium text-sm leading-5 rounded-md text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:bg-gray-100">Company</a>`
+	);
+	const [activeSnippet, setActiveSnippet] = useState(
+		`<a href="#" class="ml-4 px-3 py-2 font-medium text-sm leading-5 rounded-md text-gray-700 bg-gray-100 focus:outline-none focus:bg-gray-200" aria-current="page">Team Members</a>`
+	);
 
 	const codeEl = useRef(null);
 
@@ -75,7 +69,7 @@ function App() {
 					</a>
 				</p>
 				<p className="mb-4 text-gray-900">
-					<span role="img">🗄</span> Separate active, normal, and shared classes for tailwindui components
+					<span role="img">🗄</span> Separate active, normal, and shared classes for tailwindui components.
 				</p>
 			</div>
 			<label htmlFor="normal" className="block mb-2 text-gray-700 font-medium">
@@ -139,11 +133,11 @@ function App() {
 			</div>
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 				<div>
-					<p className="mb-2 text-gray-700 font-medium">Normal State</p>
+					<p className="mb-2 text-gray-700 font-medium">Normal Classes</p>
 					<pre className="text-gray-900">{JSON.stringify(classObject.normal, null, '  ')}</pre>
 				</div>
 				<div>
-					<p className="mb-2 text-gray-700 font-medium">Active State</p>
+					<p className="mb-2 text-gray-700 font-medium">Active Classes</p>
 					<pre className="text-gray-900">{JSON.stringify(classObject.active, null, '  ')}</pre>
 				</div>
 				<div>
