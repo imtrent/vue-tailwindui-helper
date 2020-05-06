@@ -28,7 +28,7 @@ function App() {
 		if (normal[1]) normal = normal[1].split(' ');
 		if (active[1]) active = active[1].split(' ');
 
-		const commonList = active.filter(function (n) {
+		const sharedList = active.filter(function (n) {
 			return normal.indexOf(n) !== -1;
 		});
 
@@ -41,7 +41,7 @@ function App() {
 		});
 
 		return {
-			common: commonList,
+			shared: sharedList,
 			active: activeList,
 			normal: normalList
 		};
@@ -66,7 +66,7 @@ function App() {
 					</span>
 				</h1>
 				<p className="mb-4 text-gray-900">
-					<span role="img">🗄</span> Separate active, normal, and common classes for tailwindui components
+					<span role="img">🗄</span> Separate active, normal, and shared classes for tailwindui components
 				</p>
 			</div>
 			<label htmlFor="normal" className="block mb-2 text-gray-700 font-medium">
@@ -112,8 +112,8 @@ function App() {
 						</span>
 						<span className="text-blue-400">', '</span>
 						<span className="text-gray-100">
-							{classObject.common.map(
-								(item, i) => item + `${i + 1 !== classObject.common.length ? ' ' : ''}`
+							{classObject.shared.map(
+								(item, i) => item + `${i + 1 !== classObject.shared.length ? ' ' : ''}`
 							)}
 						</span>
 						<span className="text-blue-400">'</span>
@@ -133,7 +133,7 @@ function App() {
 				</div>
 				<div>
 					<p className="mb-2 text-gray-700 font-medium">Shared Classes</p>
-					<pre className="text-gray-900">{JSON.stringify(classObject.common, null, '  ')}</pre>
+					<pre className="text-gray-900">{JSON.stringify(classObject.shared, null, '  ')}</pre>
 				</div>
 			</div>
 		</div>
