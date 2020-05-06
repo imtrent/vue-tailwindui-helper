@@ -1,18 +1,29 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, useRef } from 'react';
+
+function copyToClipBoard(elemText) {
+	const fakeTextarea = document.createElement('input');
+	document.body.appendChild(fakeTextarea);
+	fakeTextarea.setAttribute('value', elemText);
+	fakeTextarea.select();
+	document.execCommand('copy');
+	document.body.removeChild(fakeTextarea);
+}
 
 function App() {
 	const [
 		normalSnippet,
 		setNormalSnippet
-	] = useState(`<a href="#" class="whitespace-no-wrap ml-8 py-4 px-1 border-b-2 border-transparent font-medium text-sm leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300">
-  Company
-</a>`);
+	] = useState(`<a href="#" class="ml-4 px-3 py-2 font-medium text-sm leading-5 rounded-md text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700 focus:bg-gray-100">
+        Company
+      </a>`);
 	const [
 		activeSnippet,
 		setActiveSnippet
-	] = useState(`<a href="#" class="whitespace-no-wrap ml-8 py-4 px-1 border-b-2 border-indigo-500 font-medium text-sm leading-5 text-indigo-600 focus:outline-none focus:text-indigo-800 focus:border-indigo-700" aria-current="page">
-  Team Members
-</a>`);
+	] = useState(`<a href="#" class="ml-4 px-3 py-2 font-medium text-sm leading-5 rounded-md text-gray-700 bg-gray-100 focus:outline-none focus:bg-gray-200" aria-current="page">
+        Team Members
+	  </a>`);
+
+	const codeEl = useRef(null);
 
 	const computeClasses = useCallback((normalSnippet, activeSnippet) => {
 		let regex = 'class="(.*?)"';
@@ -56,15 +67,13 @@ function App() {
 	return (
 		<div className="max-w-5xl mx-auto my-8 px-8">
 			<div className="mb-8">
-				<h1 className="text-3xl text-gray-900">
-					Vue.js Tailwind UI Helper{' '}
-					<span className="text-lg">
-						by{' '}
-						<a href="https://iantrent.com/" className="text-blue-500">
-							@ianmtrent
-						</a>
-					</span>
-				</h1>
+				<h1 className="text-2xl lg:text-3xl text-gray-900">Vue.js Tailwind UI Helper </h1>
+				<p className="mb-8 text-lg">
+					by{' '}
+					<a href="https://iantrent.com/" className="text-blue-500">
+						@ianmtrent
+					</a>
+				</p>
 				<p className="mb-4 text-gray-900">
 					<span role="img">🗄</span> Separate active, normal, and shared classes for tailwindui components
 				</p>
@@ -89,9 +98,15 @@ function App() {
 				id="active"
 				name="active"
 			></textarea>
-			<div className="bg-gray-900 mb-8">
-				<pre className="overflow-auto py-8 px-8">
-					<code>
+			<div className="relative bg-gray-900 mb-8">
+				<div
+					className="absolute top-0 right-0 rounded-b-sm px-3 py-1 text-sm bg-gray-700 text-white cursor-pointer hover:bg-gray-600 transition ease-linear duration-200"
+					onClick={() => copyToClipBoard(codeEl.current.innerText)}
+				>
+					Copy
+				</div>
+				<pre className="overflow-auto py-8 mx-8">
+					<code ref={codeEl}>
 						<span className="text-blue-400">:</span>
 						<span className="text-purple-400">class</span>
 						<span className="text-blue-400">="</span>
