@@ -69,21 +69,25 @@ function App() {
 					<span role="img">🗄</span> Separate active, normal, and common classes for tailwindui components
 				</p>
 			</div>
-			<p className="mb-2 text-gray-700 font-medium">Normal Element</p>
+			<label htmlFor="normal" className="block mb-2 text-gray-700 font-medium">
+				Normal Element
+			</label>
 			<textarea
 				className="mb-4 h-32 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 				onChange={(e) => setNormalSnippet(e.target.value)}
 				value={normalSnippet}
-				cols="30"
-				rows="10"
+				id="normal"
+				name="normal"
 			></textarea>
-			<p className="mb-2 text-gray-700 font-medium">Active State Element</p>
+			<label htmlFor="active" className="block mb-2 text-gray-700 font-medium">
+				Active Element
+			</label>
 			<textarea
 				className="mb-8 h-32 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
 				onChange={(e) => setActiveSnippet(e.target.value)}
 				value={activeSnippet}
-				cols="30"
-				rows="10"
+				id="active"
+				name="active"
 			></textarea>
 			<div className="bg-gray-900 mb-8">
 				<pre className="overflow-auto py-8 px-8">
