@@ -1,10 +1,10 @@
-# 🗄 Vue.js Tailwind UI Helper
+## 🗄 Vue.js Tailwind UI Helper
 
 Separate active, normal, and shared classes for tailwindui components.
 
 <img src="./preview.jpg" alt="Vue.js Tailwind UI Helper preview">
 
-## 👨🏻‍💻 Development
+### 👨🏻‍💻 Development
 
 ```bash
 $ git clone https://github.com/imtrent/vue-tailwindui-helper.git
