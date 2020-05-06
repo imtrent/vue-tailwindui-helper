@@ -69,7 +69,7 @@ function App() {
 					</a>
 				</p>
 				<p className="mb-4 text-gray-900">
-					<span role="img">🗄</span> Separate active, normal, and shared classes for tailwindui components.
+					<span role="img">🗄</span> Separate normal, active, and shared classes for tailwindui components.
 				</p>
 			</div>
 			<label htmlFor="normal" className="block mb-2 text-gray-700 font-medium">
