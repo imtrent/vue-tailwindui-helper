@@ -93,7 +93,7 @@ function App() {
 				name="active"
 			></textarea>
 			<p className="text-gray-900 mb-3">
-				Like React better? Check out{' '}
+				Like React better? Visit{' '}
 				<a
 					className="text-blue-500"
 					href="https://gen.co/react-tailwind/"
