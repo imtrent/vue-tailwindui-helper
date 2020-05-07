@@ -92,6 +92,26 @@ function App() {
 				id="active"
 				name="active"
 			></textarea>
+			<p className="text-gray-900 mb-3">
+				Like React better? Check out{' '}
+				<a
+					className="text-blue-500"
+					href="https://gen.co/react-tailwind/"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					React Tailwind Helpers
+				</a>{' '}
+				by{' '}
+				<a
+					className="text-blue-500"
+					href="https://twitter.com/cgenco"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					@cgenco
+				</a>
+			</p>
 			<div className="relative bg-gray-900 mb-8">
 				<div
 					className="absolute top-0 right-0 rounded-b-sm px-3 py-1 text-sm bg-gray-700 text-white cursor-pointer hover:bg-gray-600 transition ease-linear duration-200"
